@@ -24,9 +24,8 @@ RUN echo "root:password" | chpasswd
 COPY shadowsocks-go.sh /home
 RUN chmod +x /home/shadowsocks-go.sh && /home/shadowsocks-go.sh
 
-RUN (wget http://download.natapp.cn/assets/downloads/clients/2_3_4/natapp_linux_amd64_2_3_4.zip)
-RUN (unzip natapp_linux_amd64_2_3_4.zip)
-RUN (chmod a+x natapp)
+COPY natapp /home
+RUN chmod a+x /home/natapp
 
 
 COPY ss.sh /home
